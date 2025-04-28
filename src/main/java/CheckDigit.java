@@ -22,10 +22,13 @@ public class CheckDigit
    *  is between two and seven, inclusive.
    *                numWithCheckDigit >= 0     
    */     
-   public static boolean isValid(int numWithCheckDigit)    
-   {      
-     return getDigit(numWithCheckDigit, getNumberOfDigits(numWithCheckDigit)) == getCheck(numWithCheckDigit / 10); 
-   }    
+   public static boolean isValid(int numWithCheckDigit) {      
+    int actualCheckDigit = numWithCheckDigit % 10;  
+    int originalNum = numWithCheckDigit / 10;      
+    int expectedCheckDigit = getCheck(originalNum); 
+    
+    return actualCheckDigit == expectedCheckDigit;
+   }
    
    /** Returns the number of digits in num. */    
    public static int getNumberOfDigits(int num)    
